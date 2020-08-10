@@ -36,5 +36,5 @@ setInterval(function () {
   // format countdown string + set tag value
 
   countdown.innerHTML =
-    '<div class="days"><h2>Left <span>' + days + " </span>Days</div> ";
+    '<div class="days"><h2>Another <span>' + days + " </span>Days</div> ";
 }, 1000);
