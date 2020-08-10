@@ -22,13 +22,7 @@ if (!defined("PHP_EOL")) define("PHP_EOL", "\r\n");
 
 $email    = $_POST['email'];
 
-if(trim($email) == '') {
-
-	echo '<div class="error_message">Please enter a valid email address.</div>';
-
-	exit();
-
-} else if(!isEmail($email)) {
+if(!isEmail($email)) {
 
 	echo '<div class="error_message">You have entered an invalid e-mail address. Please try again.</div>';
 
