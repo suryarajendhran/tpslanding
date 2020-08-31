@@ -69,15 +69,25 @@
                 <header class="page-title">
                   <h2>Subscribe to Us</h2>
                 </header>
-                <form name="contact" method="POST" data-netlify="true">
-                  <p>
-                    <input type="email" name="email" />
-                  </p>
-                  <br />
-                  <p>
-                    <button type="submit">Submit</button>
-                  </p>
+                <form
+                  id="subscribeForm"
+                  name="subscribe"
+                  method="POST"
+                  data-netlify="true"
+                >
+                  <input type="email" name="email" id="emailInput" />
                 </form>
+                <h2
+                  id="successMsg"
+                  style="
+                    display: none;
+                    font-size: medium;
+                    font-weight: 400;
+                    font-family: 'Roboto', sans-serif;
+                  "
+                >
+                  Thank you for your interest! ❤️
+                </h2>
               </article>
             </section>
 
@@ -100,10 +110,10 @@
                     <i class="fa fa-map-marker" aria-hidden="true"></i> Chennai,
                     Tamil Nadu, India.
                   </li>
-                  <li>
+                  <!-- <li>
                     <i class="fa fa-phone" aria-hidden="true"></i>
                     <a href="tel:1-212-290-4700">+1-212-290-4700</a>
-                  </li>
+                  </li> -->
                 </ul>
               </article>
             </section>
@@ -134,7 +144,11 @@
                   >
                 </li>
                 <li>
-                  <a data-toggle="tab" href="#menu2" title="Subscribe"
+                  <a
+                    data-toggle="tab"
+                    href="#menu2"
+                    title="Subscribe"
+                    id="subscribeBtn"
                     >Subscribe</a
                   >
                 </li>
@@ -207,5 +221,27 @@
 
     <script src="js/countdown-js.js" type="text/javascript"></script>
     <script src="js/html5shiv.js" type="text/javascript"></script>
+    <script>
+      const subscribeButton = document.getElementById("subscribeBtn");
+      setTimeout(() => subscribeButton.click(), 2000);
+
+      $("#emailInput").keypress(function (event) {
+        if (event.which == 13) {
+          console.log("Enter pressed!");
+        } else {
+          console.log(`Event registered is: ${event}`);
+        }
+      });
+      $("#subscribeForm").submit(function (e) {
+        e.preventDefault();
+
+        var $form = $(this);
+        $.post($form.attr("action"), $form.serialize()).then(function () {
+          $("#subscribeForm").fadeOut(200, () => {
+            $("#successMsg").fadeIn(300);
+          });
+        });
+      });
+    </script>
   </body>
 </html>

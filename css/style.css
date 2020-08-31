@@ -597,21 +597,22 @@ article[role="subscribe"].subscribe-pan form {
   overflow: hidden;
   padding-top: 5px;
   padding-bottom: 10px;
+  text-align: center;
 }
 
 article[role="subscribe"].subscribe-pan form input[type="email"] {
   display: block;
-  width: 369px;
+  width: inherit;
   height: 50px;
   outline: none;
   padding: 0 10px;
-  border: 1px solid #353535;
-  background-color: inherit;
+  /* border: 1px solid #353535; */
+  text-align: center;
+  background-color: #fff;
   font-size: 15px;
   line-height: 16px;
   color: #353535;
   font-weight: 300;
-  float: left;
 }
 
 article[role="subscribe"].subscribe-pan form label {
