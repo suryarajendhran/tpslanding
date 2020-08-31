@@ -50,7 +50,12 @@
             <!-- Countdown -->
 
             <section id="home" class="tab-pane fade in active">
-              <article role="countdown" class="countdown-pan">
+              <article
+                id="countdownArticle"
+                role="countdown"
+                class="countdown-pan"
+                style="display: none"
+              >
                 <div id="countdown" class="text-center"></div>
                 <p>until we're open</p>
               </article>
@@ -222,6 +227,7 @@
     <script src="js/countdown-js.js" type="text/javascript"></script>
     <script src="js/html5shiv.js" type="text/javascript"></script>
     <script>
+      $("#countdownArticle").fadeIn(500);
       const subscribeButton = document.getElementById("subscribeBtn");
       setTimeout(() => subscribeButton.click(), 2000);
 
